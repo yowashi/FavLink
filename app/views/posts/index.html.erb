@@ -1,0 +1,89 @@
+<%= javascript_include_tag 'jquery.raty.js' %>
+
+<%= render 'posts/error_message', posts: @post %>
+<div class="post__main">
+
+	<div class="post__main-user">
+		<% if user_signed_in? %>
+		<div class="post__main-user--image">
+			<%= attachment_image_tag(@user, :image, :fill, 100,100, fallback: "/images/no_image.jpg") %>
+		</div>
+
+		<div class="post__main-user--name">
+			Name: <%= link_to @user.name, user_path(@user) %>
+		</div>
+
+		<div class="post__main-user--introduction">
+			プロフィール:<br>
+			<%= @user.introduction %>
+		</div>
+		<div class="user__show-1--follow">
+			フォロー:<%= @user.followings.count %>
+			フォロワー:<%= @user.followers.count %>
+		</div>
+
+		<% if @user == current_user %>
+
+		<div class="post__main-user--btn">
+			<%= link_to '編集',edit_user_path(@user) %> |
+			<%= link_to '新規投稿',new_post_path %>
+		</div>
+	<% end %>
+		<% end %>
+	</div>
+
+	<div class="post__main-content">
+		<% @posts.each do |post| %>
+		<div class="post__main-content--body">
+			<div class="post__main-content--body_image">
+				<%= attachment_image_tag(post, :image, :fill, 50, 50, fallback: "/images/no_image.jpg") %>
+			</div>
+
+			<div class="post__main-content--body_title">
+				title:<%= link_to post.title,post_path(post) %>
+			</div>
+
+			<div class="post__main-content--body_name">
+				投稿者:<%= post.user.name %>
+			</div>
+
+			<div class="post__main-content--body_rate">
+				評価
+				<div id="star-rate-<%= post.id %>"></div>
+				<script>
+					$('#star-rate-<%= post.id %>').raty({
+					size: 36,
+					starOff:  '<%= asset_path('star-off.png') %>',
+					starOn : '<%= asset_path('star-on.png') %>',
+					starHalf: '<%= asset_path('star-half.png') %>',
+					half: true,
+					readOnly: true,
+					score: <%= post.rate %>,
+					});
+				</script>
+			</div>
+		</div>
+		<% end %>
+		<div class="post__main-content--body_paginate">
+					<%= paginate @posts %>
+				</div>
+	</div>
+
+	<div class="post__main-category">
+		<h2 class="post__main-category--name">
+			カテゴリー
+		</h2>
+		<% @categories.each do |category| %>
+		<div class="post__main-category--link">
+			<%= link_to category.name, posts_path(category_id: category.id), category_id: category.id %><br>
+		</div>
+		<% end %>
+		<div class="post__main-category--new">
+			<%= form_for @category do |f| %>
+			<%= f.text_field :name %>
+			<%= f.submit '追加' %>
+			<% end %>
+		</div>
+	</div>
+</div>
+

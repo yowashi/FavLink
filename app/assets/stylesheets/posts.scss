@@ -1,0 +1,225 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.clearfix::after {
+   content: "";
+   display: block;
+   clear: both;
+}
+
+.post {
+	width: 100%;
+	heigh: auto;
+
+	&__about-visual {
+	background-image: image-url("image-1.jpg");
+	background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+	height: 300px;
+	}
+
+	&__aboutcontent {
+	background-image: image-url("image-2.jpg");
+	background-size: cover;
+	height: 400px;
+
+	&--1 {
+	font-size: xx-large;
+	font-family: serif;
+	padding: 30px;
+	width: 350px;
+	background-color: rgba(255,255,255,0.8);
+	}
+
+	&--2 {
+	font-size: 20px;
+	float: right;
+	margin: 0px 150px;
+	background-color: rgba(255,255,255,0.8);
+
+		}
+	}
+
+	&__main {
+	margin: 0 auto;
+	width: 1330px;
+	height: auto;
+	display: flex;
+	}
+
+	&__main-user {
+	width: 200px;
+	height: auto;
+	background-color: #f0ffff;
+
+		&--image {
+		margin: 0 45px;
+		}
+
+		&--name {
+		margin: 0 10px;
+		}
+
+		&--introduction {
+		margin: 0 10px;
+		}
+
+		&--btn {
+		text-align: center;
+		}
+	}
+
+	&__main-content {
+	width: 930px;
+	height: 850px;
+	background-color: #f0f8ff;
+	display: flex;
+	flex-wrap: wrap;
+
+		&--body {
+		width: 300px;
+		height: 375px;
+		margin: 5px;
+		}
+
+		&--body_paginate {
+		margin: 0 auto;
+		}
+	}
+
+	&__main-category {
+	background-color: #f0ffff;
+	width: 200px;
+	height: auto;
+	text-align: center;
+
+	&--link {
+	padding: 10px;
+	font-size: 20px;
+	}
+}
+	&__show {
+	background-color: yellow;
+	width: 1330px;
+	height: auto;;
+	margin: 0 auto;
+	display: flex;
+	}
+
+	&__show-1 {
+	background-color: #f0ffff;
+	width: 200px;
+	height: auto;
+	}
+
+	&__show-2 {
+	width: 465px;
+	background-color: #f0f8ff;
+	height: auto;
+
+		&--image {
+		width: 300px;
+		height: 300px;
+		margin: 0 auto;
+		}
+	}
+
+	&__show-3 {
+	background-color: #7fffd4;
+	width: 465px;
+	height: auto;
+
+		&--content {
+		word-break: keep-all;
+		}
+	}
+
+	&__show-4 {
+	background-color: #f0ffff;
+	width: 200px;
+	height: auto;
+	text-align: center;
+
+		&--name {
+		font-size: 24px;
+		}
+
+		&--category_link {
+		margin: 10px;
+		font-size: 20px;
+		}
+	}
+
+	&__edit {
+	width: 400px;
+	margin: auto;
+	margin: 30px auto;
+	border: solid 1px black;
+	box-shadow: 0px 1px 1px darkmagenta;
+
+		&--image {
+		margin: 5px;
+		}
+
+		&--title {
+		margin: 5px;
+		}
+
+		&--rate {
+		margin: 5px;
+		}
+
+		&--content {
+		margin: 5px;
+		}
+
+		&--category {
+		margin: 5px;
+		}
+	}
+
+	&__new {
+	width: 400px;
+	margin: auto;
+	margin: 30px auto;
+	border: solid 1px black;
+	box-shadow: 0px 1px 1px darkmagenta;
+
+		&--image {
+		margin: 5px;
+		}
+
+		&--title {
+		margin: 5px;
+		}
+
+		&--rate {
+		margin: 5px;
+		}
+
+		&--content {
+		margin: 5px;
+		}
+
+		&--category {
+		margin: 5px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
