@@ -67,21 +67,21 @@
 		<h2>いいねした投稿</h2>
 			<% @post.each do |post| %>
 		<div class="user__show-likes">
-			<div class="user__show-like--image">
+			<div class="user__show-likes--image">
 					<%= attachment_image_tag(post, :image, :fill, 50, 50, fallback: "no_image.jpg") %>
 			</div>
-			<div class="user__show-like--title">
+			<div class="user__show-likes--title">
 			title:<%= link_to post.title,post %>
 			</div>
-			<div class="user__show-like--content">
+			<div class="user__show-likes--content">
 				<%= post.content %>
 			</div>
-			<div class="user__show-like-user">
+			<div class="user__show-likes-user">
 				投稿者:<%= post.user.name %>
 			</div>
 		</div>
 		<% end %>
-		<div class="user__show-like--paginate">
+		<div class="user__show-likes--paginate">
 			<%= paginate @post %>
 		</div>
 	</div>
