@@ -41,6 +41,7 @@
 
 			<div class="post__main-content--body_title">
 				title:<%= link_to post.title,post_path(post) %>
+				(<%= post.liked_users.count %>)
 			</div>
 
 			<div class="post__main-content--body_name">
