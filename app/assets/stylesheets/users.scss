@@ -6,7 +6,7 @@
 	width: 100px;
 
 	&__main {
-	width: 1200px;
+	width: 1000px;
 	height: auto;
 	}
 
@@ -19,7 +19,7 @@
 
 	&__show {
 	background-color: pink;
-	width: 1330px;
+	width: 1000px;
 	height: auto;
 	display: flex;
 	margin: 0 auto;
@@ -29,6 +29,7 @@
 	background-color: #f0ffff;
 	width: 200px;
 	height: auto;
+	text-align: center;
 
 		&--image {
 		margin: 0 45px;
@@ -49,13 +50,13 @@
 
 	&__show-2 {
 	background-color: #e0ffff;
-	width: 465px;
+	width: 300px;
 	height: auto;
 	text-align: center;
 	}
 
 	&__show-posts {
-	width: 400px;
+	width: 200px;
 	margin: 0 auto;
 	}
 	&__show-posts--paginate {
@@ -64,13 +65,13 @@
 
 	&__show-3 {
 	background-color: #7fffd4;
-	width: 465px;
+	width: 300px;
 	height: auto;
 	text-align: center;
 	}
 
 	&__show-likes {
-	width: 400px;
+	width: 200px;
 	margin: 0 auto;
 	}
 
