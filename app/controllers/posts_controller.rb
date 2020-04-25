@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-
-	before_action :authenticate_user!, only: [:new,:create,:edit,:update,:destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def top
   end
@@ -14,24 +13,24 @@ class PostsController < ApplicationController
       @user = current_user
       @post = Post.new
     else
-  	 @posts = Post.page(params[:page]).per(PER).reverse_order
-  	 @post = Post.new
-     @categories = Category.all
-     @category = Category.new
-     @user = current_user
+      @posts = Post.page(params[:page]).per(PER).reverse_order
+      @post = Post.new
+      @categories = Category.all
+      @category = Category.new
+      @user = current_user
     end
   end
 
   def new
-  	@post = Post.new
+    @post = Post.new
     @category = Category.all
   end
 
   def create
-  	@post = Post.new(post_params)
+    @post = Post.new(post_params)
     @post.user_id = current_user.id
-  	if @post.save
-      redirect_to @post,notice: "投稿しました"
+    if @post.save
+      redirect_to @post, notice: "投稿しました"
     else
       @categories = Category.all
       @category = Category.new
@@ -42,8 +41,8 @@ class PostsController < ApplicationController
   end
 
   def show
-  	@post = Post.find(params[:id])
-    @user= @post.user
+    @post = Post.find(params[:id])
+    @user = @post.user
     @comments = @post.comments
     @comment = Comment.new
     @like = Like.new
@@ -51,14 +50,14 @@ class PostsController < ApplicationController
   end
 
   def edit
-  	@post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     @category = Category.all
   end
 
   def update
-  	@post = Post.find(params[:id])
-  	if @post.update(post_params)
-      redirect_to post_path(@post),notice: '更新しました'
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to post_path(@post), notice: '更新しました'
     else
       @category = Category.all
       render 'edit'
@@ -72,7 +71,8 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
-  	params.require(:post).permit(:title,:content,:rate,:image,:category_id,:user_id)
+    params.require(:post).permit(:title, :content, :rate, :image, :category_id, :user_id)
   end
 end

@@ -1,12 +1,11 @@
 class RelationshipsController < ApplicationController
-
-	def create
+  def create
     user = User.find(params[:follow_id])
     following = current_user.follow(user)
     if following.save
-      redirect_to user,notice:'ユーザーをフォローしました'
+      redirect_to user, notice: 'ユーザーをフォローしました'
     else
-      redirect_to user,notice: 'ユーザーのフォローに失敗しました'
+      redirect_to user, notice: 'ユーザーのフォローに失敗しました'
     end
   end
 
@@ -14,9 +13,9 @@ class RelationshipsController < ApplicationController
     user = User.find(params[:follow_id])
     following = current_user.unfollow(user)
     if following.destroy
-      redirect_to user,notice:'ユーザーのフォローを解除しました'
+      redirect_to user, notice: 'ユーザーのフォローを解除しました'
     else
-      redirect_to user, notice:'ユーザーのフォロー解除に失敗しました'
+      redirect_to user, notice: 'ユーザーのフォロー解除に失敗しました'
     end
   end
 end
