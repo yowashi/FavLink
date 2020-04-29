@@ -17,7 +17,7 @@
 			プロフィール:<br>
 			<%= @user.introduction %>
 		</div>
-		<div class="user__show-1--follow">
+		<div class="user__main-user--follow">
 			フォロー:<%= @user.followings.count %>
 			フォロワー:<%= @user.followers.count %>
 		</div>
@@ -76,10 +76,13 @@
 		</h2>
 		<% @categories.each do |category| %>
 		<div class="post__main-category--link">
-			<%= link_to category.name, posts_path(category_id: category.id), category_id: category.id %><br>
+			<%= link_to category.name, posts_path(category_id: category.id), category_id: category.id %>
 		</div>
+		<%= link_to '削除',category_path(category),method: :delete,data: {confirm: "本当に削除してもよろしいですか?"} %>
 		<% end %>
 		<div class="post__main-category--new">
+			<h3>カテゴリー<br>
+					追加フォーム</h3>
 			<%= form_for @category do |f| %>
 			<%= f.text_field :name %>
 			<%= f.submit '追加' %>

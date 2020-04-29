@@ -111,14 +111,14 @@
 	display: flex;
 	}
 
-	&__show-1 {
+	&__show-user {
 	background-color: #f0ffff;
 	width: 200px;
 	text-align: center;
 	height: auto;
 	}
 
-	&__show-2 {
+	&__show-post {
 	width: 300px;
 	background-color: #f0f8ff;
 	height: auto;
@@ -130,7 +130,7 @@
 		}
 	}
 
-	&__show-3 {
+	&__show-post_content {
 	background-color: #7fffd4;
 	width: 300px;
 	height: auto;
@@ -140,7 +140,7 @@
 		}
 	}
 
-	&__show-4 {
+	&__show-category {
 	background-color: #f0ffff;
 	width: 200px;
 	height: auto;

@@ -25,7 +25,7 @@
 	margin: 0 auto;
 	}
 
-	&__show-1 {
+	&__show-user {
 	background-color: #f0ffff;
 	width: 200px;
 	height: auto;
@@ -48,7 +48,7 @@
 		}
 	}
 
-	&__show-2 {
+	&__show-post {
 	background-color: #e0ffff;
 	width: 300px;
 	height: auto;
@@ -63,7 +63,7 @@
 	text-align: center;
 	}
 
-	&__show-3 {
+	&__show-like {
 	background-color: #7fffd4;
 	width: 300px;
 	height: auto;
@@ -75,13 +75,13 @@
 	margin: 0 auto;
 	}
 
-	&__show-4 {
+	&__show-category {
 	background-color: #f0ffff;
 	width: 200px;
 	height: auto;
 	text-align: center;
 
-		&--category_link {
+		&--link {
 		padding: 10px;
 		font-size: 20px;
 		}

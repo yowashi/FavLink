@@ -10,6 +10,7 @@ class PostsController < ApplicationController
       @category = Category.find(params[:category_id])
       @posts = @category.posts.page(params[:page]).per(PER).reverse_order
       @categories = Category.all
+      @category = Category.new
       @user = current_user
       @post = Post.new
     else

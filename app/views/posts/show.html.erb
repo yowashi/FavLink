@@ -2,8 +2,8 @@
 
 <div class="post__show">
 
-	<div class="post__show-1">
-		<% if user_signed_in? %>
+	<div class="post__show-user">
+		<h3>投稿者</h3>
 			<div class="post__main-user--image">
 				<%= attachment_image_tag(@user, :image, :fill, 100,100, fallback: "/images/no_image.jpg") %>
 			</div>
@@ -25,23 +25,22 @@
 				<%= link_to '新規投稿',new_post_path %>
 			</div>
 			<% end %>
-		<% end %>
 	</div>
 
-	<div class="post__show-2">
-		<div class="post__show-2-content">
-			<div class="post__show-2--image">
+	<div class="post__show-post">
+		<div class="post__show-post-content">
+			<div class="post__show-post--image">
 				<%= attachment_image_tag(@post, :image, :fill, 100, 100, fallback: "no_image.jpg") %>
 			</div>
 
 			<% if @user == current_user %>
-			<div class="post__show-2--btn1">
+			<div class="post__show-post--btn1">
 				<%= link_to '編集',edit_post_path(@post) %>|<%= link_to '削除',@post,method: :delete,data: {confirm: "本当に削除してもよろしいですか？"} %>
 			</div>
 			<% end %>
 
 			<% if user_signed_in? %>
-			<div class="post__show-2--btn2">
+			<div class="post__show-post--btn2">
 				<% if current_user.already_liked?(@post) %>
 				<%= button_to 'いいねを取り消す', post_like_path(@post), method: :delete %>
 				<% else %>
@@ -56,12 +55,12 @@
 		</div>
 	</div>
 
-	<div class="post__show-3">
-		<div class="post__show-3--title">
+	<div class="post__show-post_content">
+		<div class="post__show-post_content--title">
 			<h2>Title</h2>
 			<%= @post.title %>
 		</div>
-		<div class="post__show-3--rate">
+		<div class="post__show-post_content--rate">
 			<h2>Rate</h2>
 			<div id="star-rate-<%= @post.id %>"></div>
 			<script>
@@ -77,22 +76,22 @@
 			</script>
 		</div>
 
-		<div class="post__show-3--content">
+		<div class="post__show-post_content--content">
 			<h2>Content</h2>
 			<%= @post.content %><br>
 		</div>
 
 		<% if user_signed_in? %>
 
-		<div class="post__show-3--comment-new">
+		<div class="post__show-post_content--comment-new">
 			<%= render 'comments/new' %>
 		</div>
 		<% end %>
 
-		<div class="post__show-3--comment-index">
+		<div class="post__show-post_content--comment-index">
 			<h2>コメント一覧</h2>
 			<% @comments.each do |comment| %>
-			<div class="post__show-3--comment">
+			<div class="post__show-post_content--comment">
 			<%= comment.content %>
 			[ユーザー名:<%= comment.user.name %>]
 			<% if user_signed_in? %>
@@ -105,15 +104,16 @@
 		</div>
 	</div>
 
-	<div class="post__show-4">
-		<div class="post__show-4--category">
-			<div class="post__show-4--category_name">
+	<div class="post__show-category">
+		<div class="post__show-category--category">
+			<div class="post__show-category--category_name">
 				カテゴリー
 			</div>
 			<% @categories.each do |category| %>
-			<div class="post__show-4--category_link">
+			<div class="post__show-category--category_link">
 				<%= link_to category.name, posts_path(category_id: category.id), category_id: category.id %><br>
 			</div>
+			<%= link_to '削除',category_path(category),method: :delete,data: {confirm: "本当に削除してもよろしいですか?"} %>
 			<% end %>
 		</div>
 	</div>
