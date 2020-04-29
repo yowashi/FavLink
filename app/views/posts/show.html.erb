@@ -5,7 +5,7 @@
 	<div class="post__show-user">
 		<h3>投稿者</h3>
 			<div class="post__main-user--image">
-				<%= attachment_image_tag(@user, :image, :fill, 100,100, fallback: "/images/no_image.jpg") %>
+				<%= attachment_image_tag(@user, :image, :fill, 100,100, fallback: "no_image.jpg") %>
 			</div>
 			<div class="post__main-user--name">
 				Name:<%= link_to @user.name, user_path(@user) %>
